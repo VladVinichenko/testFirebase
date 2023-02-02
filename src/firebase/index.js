@@ -15,8 +15,6 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 // };
 
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
   apiKey: "AIzaSyD2td3YLiA5k312uFwFLO2eRIA3Fsry6oc",
   authDomain: "test-project-1967e.firebaseapp.com",
@@ -38,7 +36,6 @@ const auth = getAuth(app);
 const email = 'vinnyxxxl925@gmail.com'
 const password = 'petuhi'
 
-// const auth = getAuth();
 
 export const signUser= () => {signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {

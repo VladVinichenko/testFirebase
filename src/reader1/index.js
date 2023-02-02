@@ -6,7 +6,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 
 export function Reader1() {
-  const [pdfString, setPdfString] = useState('');
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [download, setDownload] = useState(null);
@@ -33,9 +32,6 @@ useEffect(() => {
 
 }, [])
 
-// useEffect(() => {
-//   pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
-// }, [])
 
 
 
@@ -71,10 +67,3 @@ console.log(download);
     </div>
   );
 }
-
-
-{/* <Document file={download} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} />
-      </Document>       <p>
-        Page {pageNumber} of {numPages}
-      </p>*/}

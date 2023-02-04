@@ -56,41 +56,39 @@ export const signUser= () => {signInWithEmailAndPassword(auth, email, password)
 
 // Create a reference with an initial file path and name
 const storage = getStorage(app);
-const pathReference = ref(storage, 'images/stars.jpg');
-
-// Create a reference from a Google Cloud Storage URI
-
-// Create a reference from an HTTPS URL
-// Note that in the URL, characters are URL escaped!
-// const httpsReference = ref(storage, 'https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg');  
 
 
-export const getURL = (onLoad) => {
-  getDownloadURL(ref(storage, 'gs://test-project-1967e.appspot.com/Focke Wulf Fw 190 A. - die späten Baureihen. Benutzerhandbuch. Erweiterung für den Microsoft Flight Simulator X. Dezember 2009, Version 1..pdf'))
+export const getURL = (callback) => {
+  // getDownloadURL(ref(storage, 'gs://test-project-1967e.appspot.com/Урок 1_Алфавіт та правила читання.pdf'))
+  getDownloadURL(ref(storage, 'gs://test-1919-b3d61.appspot.com/Урок 1_Алфавіт та правила читання.pdf'))
   .then((url) => {
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
     xhr.open('GET', url);
 
-    xhr.onload = function (e) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-         const res = event.target.result;
-         onLoad(res);            // callback
-  }
-  const file = this.response;
-  reader.readAsDataURL(file)
-}
+//     xhr.onload = function (e) {
+//       const reader = new FileReader();
+//       reader.onload = function(event) {
+//          const res = event.target.result;
+//         //  callback(res.replace("data:application/pdf;base64,", ''));            // callback
+//         callback(res.replace("data:application/pdf;base64,", ''));
+//   }
+//   const file = this.response;
+//   reader.readAsDataURL(file)
+// }
 
 // xhr.onload = (event) => {
 //   const blob = xhr.response;
 
 //   const file = new File([blob], "meow.pdf");
-//   onLoad(file)
+//   callback(file)
 // };
 
 
-
+xhr.onload = (event) => {
+  const blob = xhr.response;
+  callback(URL.createObjectURL(blob))
+};
 
 
 

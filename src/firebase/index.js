@@ -60,12 +60,14 @@ const storage = getStorage(app);
 
 export const getURL = (callback) => {
   // getDownloadURL(ref(storage, 'gs://test-project-1967e.appspot.com/Урок 1_Алфавіт та правила читання.pdf'))
-  getDownloadURL(ref(storage, 'gs://test-1919-b3d61.appspot.com/Урок 1_Алфавіт та правила читання.pdf'))
-  .then((url) => {
+  // getDownloadURL(ref(storage, 'gs://test-1919-b3d61.appspot.com/Урок 1_Алфавіт та правила читання.pdf'))
+
+  // .then((url) => {
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
-    xhr.open('GET', url);
-
+    // xhr.withCredentials = true;
+    xhr.open("GET", "https://drive.google.com/uc?id=1iuuSt0yv0Hrf9Zf_0cQJeralGvyG731d&export=download");
+    // xhr.setRequestHeader("Authorization", "Bearer 1//09NjHtgA0E2J1CgYIARAAGAkSNwF-L9IrYVNXP9g7ckHdufNQ4SuK6EHfNqfmLCoN0nW0PjDGCtOo63EuLpFV6qQEyYM98AZiTi0");
 //     xhr.onload = function (e) {
 //       const reader = new FileReader();
 //       reader.onload = function(event) {
@@ -87,6 +89,7 @@ export const getURL = (callback) => {
 
 xhr.onload = (event) => {
   const blob = xhr.response;
+  console.log(blob);
   callback(URL.createObjectURL(blob))
 };
 
@@ -96,8 +99,8 @@ xhr.onload = (event) => {
 
 
     xhr.send();
-  })
-  .catch((error) => {
+  // })
+  // .catch((error) => {
     // Handle any errors
-  })
+  // })
 }

@@ -60,7 +60,7 @@ console.log(download);
 //           Previous
 //         </button>
 //         <button
-//           type="button"
+//           type="button"z
 //           disabled={pageNumber >= numPages}
 //           onClick={nextPage}
 //         >

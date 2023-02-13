@@ -31,6 +31,22 @@ const accessToken = 'Bearer ' + token
     callback(URL.createObjectURL(blob));
   };
   xhr.send();
+
+  // var myHeaders = new Headers();
+  // myHeaders.append("Authorization", accessToken);
+  
+  // var requestOptions = {
+  //   method: 'GET',
+  //   headers: myHeaders,
+  //   redirect: 'follow'
+  // };
+  
+  // fetch("https://www.googleapis.com/drive/v3/files/1tjLEJ2FOgv7_s-PVBKq2Ea9xklbtJu33?alt=media", requestOptions)
+  //   .then((response) => response.blob())
+  //   .then(result => callback(result))
+  //   .catch(error => console.log('error', error));
+
+
 };
 
 

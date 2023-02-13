@@ -39,7 +39,7 @@ useEffect(() => {
 
 
 
-console.log(download);
+// console.log(download);
 //   return (
 //     <div>
 // {download &&       <Document

@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+// import { initializeApp } from 'firebase/app';
+// import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+// import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 // const firebaseConfig = {
 //   apiKey: 'AIzaSyCrhBW63SM95ZUKCf6EsxC1CtzGhzdJBtQ',
@@ -15,47 +15,47 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 // };
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD2td3YLiA5k312uFwFLO2eRIA3Fsry6oc",
-  authDomain: "test-project-1967e.firebaseapp.com",
-  databaseURL: "https://test-project-1967e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "test-project-1967e",
-  storageBucket: "test-project-1967e.appspot.com",
-  messagingSenderId: "1001589732219",
-  appId: "1:1001589732219:web:13d02dac5203fa71fac3de",
-  measurementId: "G-NM0PEQQDLG"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyD2td3YLiA5k312uFwFLO2eRIA3Fsry6oc",
+//   authDomain: "test-project-1967e.firebaseapp.com",
+//   databaseURL: "https://test-project-1967e-default-rtdb.europe-west1.firebasedatabase.app",
+//   projectId: "test-project-1967e",
+//   storageBucket: "test-project-1967e.appspot.com",
+//   messagingSenderId: "1001589732219",
+//   appId: "1:1001589732219:web:13d02dac5203fa71fac3de",
+//   measurementId: "G-NM0PEQQDLG"
+// };
 
 // // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
 
 // // Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
+// const auth = getAuth(app);
 
-const email = 'vinnyxxxl925@gmail.com'
-const password = 'petuhi'
+// const email = 'vinnyxxxl925@gmail.com'
+// const password = 'petuhi'
 
 
-export const signUser= () => {signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-    // console.log(user);
-    return user
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+// export const signUser= () => {signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+//     // ...
+//     // console.log(user);
+//     return user
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
   
-}
+// }
 
 
 
 // Create a reference with an initial file path and name
-const storage = getStorage(app);
+// const storage = getStorage(app);
 
 
 export const getURL = (callback) => {
@@ -93,7 +93,7 @@ export const getURL = (callback) => {
 
 xhr.onload = (event) => {
   const blob = xhr.response;
-  console.log(blob);
+  // console.log(blob);
   callback(URL.createObjectURL(blob))
 };
 

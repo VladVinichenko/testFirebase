@@ -65,8 +65,12 @@ export const getURL = (callback) => {
   // .then((url) => {
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
-    // xhr.withCredentials = true;
-    xhr.open("GET", "https://drive.google.com/uc?id=1iuuSt0yv0Hrf9Zf_0cQJeralGvyG731d&export=download");
+    xhr.withCredentials = true;
+  
+
+    xhr.open("GET", "https://www.googleapis.com/drive/v3/files/1tjLEJ2FOgv7_s-PVBKq2Ea9xklbtJu33?alt=media");
+    xhr.setRequestHeader("Authorization", "Bearer ya29.a0AVvZVsrX1LjXVBefVvJ_22u25GMas6OFchyQxEckrFRUTRnl21e6_woUecHaqXngCdOgWjkRu9IZnh8UwYmLrTGGmUizj31fkKNNLxSZK8zmW_jnnxt1ZcIjZgPIppnddIIFANrj-UO6A_hX8nrRK5XgIbCUaCgYKAQMSARESFQGbdwaIyRmTck5KROpVPHDRcXkyJg0163");
+    // xhr.open("GET", "https://drive.google.com/file/d/1tjLEJ2FOgv7_s-PVBKq2Ea9xklbtJu33/view?usp=drivesdk");
     // xhr.setRequestHeader("Authorization", "Bearer 1//09NjHtgA0E2J1CgYIARAAGAkSNwF-L9IrYVNXP9g7ckHdufNQ4SuK6EHfNqfmLCoN0nW0PjDGCtOo63EuLpFV6qQEyYM98AZiTi0");
 //     xhr.onload = function (e) {
 //       const reader = new FileReader();

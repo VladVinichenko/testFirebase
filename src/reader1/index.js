@@ -24,14 +24,12 @@ export function Reader1() {
   // function nextPage() {
   //   changePage(1);
   // }
-
+// console.log(download);
 useEffect(() => {
-
-  getURL(function(res){setDownload(res)})
+console.log('i fire once');
+  getURL(async function(res){await setDownload(res)})
 
 }, [])
-
-
 
 
 

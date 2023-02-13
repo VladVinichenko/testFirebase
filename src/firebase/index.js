@@ -1,16 +1,30 @@
-export const getURL = (callback) => {
+
+import CryptoJS from "crypto-js";
+
+export const getURL = async (callback) => {
+
+let token = null
+console.log('1');
+await getToken.then(el => token = decodeText(el.data))
+console.log(token);
+console.log('2');
+
+const accessToken = 'Bearer ' + token
+
+// console.log(accessToken);
+
   const xhr = new XMLHttpRequest();
   xhr.responseType = "blob";
-  xhr.withCredentials = true;
+  // xhr.withCredentials = true;
   xhr.open(
     "GET",
     "https://www.googleapis.com/drive/v3/files/1tjLEJ2FOgv7_s-PVBKq2Ea9xklbtJu33?alt=media"
   );
   xhr.setRequestHeader(
     "Authorization",
-    "Bearer ya29.a0AVvZVsrX1LjXVBefVvJ_22u25GMas6OFchyQxEckrFRUTRnl21e6_woUecHaqXngCdOgWjkRu9IZnh8UwYmLrTGGmUizj31fkKNNLxSZK8zmW_jnnxt1ZcIjZgPIppnddIIFANrj-UO6A_hX8nrRK5XgIbCUaCgYKAQMSARESFQGbdwaIyRmTck5KROpVPHDRcXkyJg0163"
+    accessToken,
+    "Access-Control-Max-Age: 7200"
   );
-
   xhr.onload = (event) => {
     const blob = xhr.response;
 
@@ -18,3 +32,25 @@ export const getURL = (callback) => {
   };
   xhr.send();
 };
+
+
+
+const getToken = new Promise(function(resolve, reject) {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:8080/api/files/getToken", requestOptions)
+    .then(response => response.text())
+    .then(result => resolve(JSON.parse(result)))
+    .catch(error => reject(error));
+  })
+
+const TOKEN_SECRET_KEY = 'woQqtOekeN0zXqv61'
+
+  const decodeText = (ciphertext) => CryptoJS.Rabbit.decrypt(ciphertext, TOKEN_SECRET_KEY).toString(CryptoJS.enc.Utf8);
+  
+  
+  
+  

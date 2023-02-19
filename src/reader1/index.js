@@ -36,14 +36,14 @@ console.log('i fire once');
 
 return (
   <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-  {download && <div
+  <div
     style={{
         border: '1px solid rgba(0, 0, 0, 0.3)',
         height: '750px',
     }}
 >
     <Viewer fileUrl={download} />
-</div>}
+</div>
 </Worker>
 )
 }
